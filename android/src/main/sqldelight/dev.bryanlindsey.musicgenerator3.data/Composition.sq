@@ -1,0 +1,41 @@
+import dev.bryanlindsey.themecomposer.MidiInstrument;
+import dev.bryanlindsey.themecomposer.structure.NamedPitch;
+import dev.bryanlindsey.themecomposer.structure.ScaleType;
+import dev.bryanlindsey.themecomposer.structure.TimeSignature;
+
+CREATE TABLE composition (
+id INTEGER NOT NULL PRIMARY KEY,
+name TEXT NOT NULL,
+time_signature TEXT AS TimeSignature NOT NULL,
+tempo INTEGER as Int NOT NULL,
+scale_pitch TEXT AS NamedPitch NOT NULL,
+scale_type TEXT AS ScaleType NOT NULL,
+melody_staccato_string TEXT NOT NULL,
+chord_staccato_string TEXT NOT NULL,
+metronome_staccato_string TEXT NOT NULL,
+start_beat INTEGER as Int DEFAULT 0,
+melody_instrument TEXT as MidiInstrument,
+chord_instrument TEXT as MidiInstrument
+);
+
+selectAll:
+SELECT *
+FROM composition;
+
+select:
+SELECT *
+FROM composition
+WHERE id = ?;
+
+insert:
+INSERT INTO composition
+VALUES ?;
+
+delete:
+DELETE FROM composition
+WHERE id = ?;
+
+updateName:
+UPDATE composition
+SET name = ?
+WHERE id = ?;

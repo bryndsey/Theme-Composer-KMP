@@ -4,10 +4,15 @@ buildscript {
         jcenter()
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}")
+        classpath("org.jetbrains.compose:compose-gradle-plugin:${Versions.composeVersion}")
         classpath("com.android.tools.build:gradle:4.0.2")
+
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltVersion}")
+        classpath("com.squareup.sqldelight:gradle-plugin:${Versions.sqlDelightVersion}")
     }
 }
 

@@ -4,3 +4,4 @@
 *.iml
 .idea/caches/build_file_checksums.ser
 .idea/artifacts/desktop_jvm_1_0_0.xml
+*.hprof
