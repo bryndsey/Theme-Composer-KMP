@@ -14,7 +14,6 @@ rootProject.name = "ThemeComposerKMP"
 include(":android")
 include(":desktop")
 include(":common")
-include(":composer")
 include(":staccato")
 include(":themecomposer")
 
