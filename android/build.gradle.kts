@@ -7,7 +7,7 @@ plugins {
     id("com.squareup.sqldelight")
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 repositories {
@@ -40,17 +40,12 @@ dependencies {
 
     implementation("androidx.datastore:datastore-preferences:1.0.0-alpha08")
 
-    implementation(project(":staccato"))
-    implementation(project(":themecomposer"))
-
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}")
 
     implementation("com.google.dagger:hilt-android:${Versions.hiltVersion}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}")
 
     implementation("com.squareup.sqldelight:android-driver:${Versions.sqlDelightVersion}")
-    implementation("com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelightVersion}")
 
     implementation("jp.kshoji:jfugue-android:5.0.9.201706:@aar")
     implementation("com.github.appleeducate:MidiDriver-Android-SF2:1.1")
@@ -63,7 +58,7 @@ dependencies {
 android {
     compileSdkVersion(29)
     defaultConfig {
-        applicationId = "com.bryanlindsey.android"
+        applicationId = "dev.bryanlindsey.android"
         minSdkVersion(24)
         targetSdkVersion(29)
         versionCode = 1

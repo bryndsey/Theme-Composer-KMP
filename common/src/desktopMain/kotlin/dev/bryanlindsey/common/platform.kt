@@ -1,4 +1,4 @@
-package com.bryanlindsey.common
+package dev.bryanlindsey.common
 
 actual fun getPlatformName(): String {
     return "Desktop"

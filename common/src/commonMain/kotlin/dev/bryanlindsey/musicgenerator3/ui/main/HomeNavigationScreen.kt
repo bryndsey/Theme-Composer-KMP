@@ -6,8 +6,9 @@ import androidx.compose.material.Button
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.QueueMusic
-import androidx.compose.material.icons.filled.Tungsten
+import androidx.compose.material.icons.filled.Info
+//import androidx.compose.material.icons.filled.QueueMusic
+//import androidx.compose.material.icons.filled.Tungsten
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +34,7 @@ fun HomeNavigationScreen(
                 .fillMaxWidth()
                 .height(100.dp)
         ) {
-            Icon(Icons.Default.Tungsten, null)
+            Icon(Icons.Default.Info, null)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Spark")
         }
@@ -45,7 +46,7 @@ fun HomeNavigationScreen(
                 .fillMaxWidth()
                 .height(100.dp)
         ) {
-            Icon(Icons.Default.QueueMusic, null)
+            Icon(Icons.Default.Info, null)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Saved")
         }

@@ -16,7 +16,7 @@ buildscript {
     }
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 allprojects {
@@ -24,5 +24,6 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
+        maven("https://jitpack.io")
     }
 }

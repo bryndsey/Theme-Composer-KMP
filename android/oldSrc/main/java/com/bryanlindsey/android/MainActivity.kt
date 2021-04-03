@@ -1,6 +1,6 @@
-package com.bryanlindsey.android
+package dev.bryanlindsey.android
 
-import com.bryanlindsey.common.App
+import dev.bryanlindsey.common.App
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.platform.setContent

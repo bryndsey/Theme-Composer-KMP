@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.compose")// version Versions.composeVersion
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 repositories {
@@ -26,6 +26,13 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+
+                api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}")
+
+                api(project(":staccato"))
+                api(project(":themecomposer"))
+
+                api("com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelightVersion}")
             }
         }
         val commonTest by getting

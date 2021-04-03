@@ -1,4 +1,4 @@
-package com.bryanlindsey.common
+package dev.bryanlindsey.common
 import androidx.compose.material.Text
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
