@@ -7,7 +7,7 @@ plugins {
     id("com.squareup.sqldelight")
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 repositories {
@@ -58,7 +58,7 @@ dependencies {
 android {
     compileSdkVersion(29)
     defaultConfig {
-        applicationId = "com.bryanlindsey.android"
+        applicationId = "dev.bryanlindsey.android"
         minSdkVersion(24)
         targetSdkVersion(29)
         versionCode = 1

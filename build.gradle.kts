@@ -16,7 +16,7 @@ buildscript {
     }
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 allprojects {

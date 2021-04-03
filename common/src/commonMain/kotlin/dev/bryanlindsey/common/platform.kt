@@ -1,3 +1,3 @@
-package com.bryanlindsey.common
+package dev.bryanlindsey.common
 
 expect fun getPlatformName(): String

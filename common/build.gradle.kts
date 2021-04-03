@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.compose")// version Versions.composeVersion
 }
 
-group = "com.bryanlindsey"
+group = "dev.bryanlindsey"
 version = "1.0"
 
 repositories {
