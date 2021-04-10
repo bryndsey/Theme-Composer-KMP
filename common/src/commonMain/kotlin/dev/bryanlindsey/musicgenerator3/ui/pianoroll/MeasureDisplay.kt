@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import dev.bryanlindsey.musicgenerator3.ui.common.drawText
@@ -54,6 +55,7 @@ fun MeasureDisplay(
                 y = size.height - textPadding.toPx(),
                 textColor = contentColor,
                 textSize = textSize,
+                textAlign = TextAlign.Left
             )
 
             // Measure start line
