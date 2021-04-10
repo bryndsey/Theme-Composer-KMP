@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.drawIntoCanvas
 import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.style.TextAlign
-import org.jetbrains.skija.Typeface
+import org.jetbrains.skija.TextLine
 
 actual fun DrawScope.drawText(
     text: String,
@@ -19,8 +19,16 @@ actual fun DrawScope.drawText(
     val paint = Paint()
     paint.color = textColor
     val nativePaint = paint.asFrameworkPaint()
-    val font = org.jetbrains.skija.Font(null, textSize)//typeface, textSize)
-        drawIntoCanvas {
-            it.nativeCanvas.drawString(text, x, y, font, nativePaint)
+    val font = org.jetbrains.skija.Font(null, textSize)
+    drawIntoCanvas {
+        val textLine = TextLine.make(text, font)
+        val xOffset = when (textAlign) {
+            TextAlign.Left, TextAlign.Start -> 0f
+            TextAlign.Right, TextAlign.End -> textLine.width
+            TextAlign.Center, TextAlign.Justify -> textLine.width / 2f
         }
+        val actualX = x - xOffset
+
+        it.nativeCanvas.drawTextLine(textLine, actualX, y, nativePaint)
+    }
 }
