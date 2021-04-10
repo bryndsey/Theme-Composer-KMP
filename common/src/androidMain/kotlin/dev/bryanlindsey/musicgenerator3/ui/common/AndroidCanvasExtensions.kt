@@ -8,13 +8,13 @@ import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
-fun DrawScope.drawText(
+actual fun DrawScope.drawText(
     text: String,
     x: Float,
     y: Float,
     textColor: Color,
-    textSize: Float = 16.dp.toPx(),
-    textAlign: TextAlign = TextAlign.Left
+    textSize: Float,
+    textAlign: TextAlign
 ) {
     val paint = Paint()
     paint.color = textColor

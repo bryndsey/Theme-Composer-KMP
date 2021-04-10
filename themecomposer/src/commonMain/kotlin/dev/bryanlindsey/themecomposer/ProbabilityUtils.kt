@@ -1,7 +1,6 @@
 package dev.bryanlindsey.themecomposer
 
 import dev.bryanlindsey.themecomposer.structure.*
-import java.util.*
 
 fun main() {
     val stepWiseProbs = createSpecificNoteStepwiseProbabilitiesFromReferenceNote(
@@ -98,7 +97,7 @@ fun getSpecificPitchRangeProbabilitiesWithLimits(
         }
 }
 
-fun SpecificPitchProbabilities.sort(): SortedMap<SpecificPitch, Float> {
+fun SpecificPitchProbabilities.sort(): Map<SpecificPitch, Float> {
     return toSortedMap { pitch1, pitch2 ->
         pitch1.getSemitoneOffsetFromMiddleC()
             .compareTo(pitch2.getSemitoneOffsetFromMiddleC())

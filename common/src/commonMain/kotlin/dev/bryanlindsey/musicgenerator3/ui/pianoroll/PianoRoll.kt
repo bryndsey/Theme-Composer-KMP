@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
-import dev.bryanlindsey.musicgenerator3.ui.theme.MusicGenerator3Theme
+//import dev.bryanlindsey.musicgenerator3.ui.theme.MusicGenerator3Theme
 import dev.bryanlindsey.themecomposer.getSemitoneOffsetFromMiddleC
 import dev.bryanlindsey.themecomposer.structure.*
 import kotlin.math.max
