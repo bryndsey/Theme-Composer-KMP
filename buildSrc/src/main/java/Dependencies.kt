@@ -4,6 +4,7 @@
       val composeVersion = "0.4.0-build180"
 
      val coroutinesVersion = "1.4.2"
+     val daggerVersion = "2.34"
      val hiltVersion = "2.33-beta"
      val sqlDelightVersion = "1.4.4"
  }

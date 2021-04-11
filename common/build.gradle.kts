@@ -2,6 +2,7 @@ import org.jetbrains.compose.compose
 
 plugins {
     kotlin("multiplatform")
+    kotlin("kapt")
     id("com.android.library")
     id("org.jetbrains.compose")// version Versions.composeVersion
 }
@@ -32,6 +33,10 @@ kotlin {
                 api(project(":staccato"))
                 api(project(":themecomposer"))
 
+                api("com.github.JensPiegsa:jfugue:5.0.9")
+
+                api("com.google.dagger:dagger:${Versions.daggerVersion}")
+
                 api("com.squareup.sqldelight:coroutines-extensions:${Versions.sqlDelightVersion}")
             }
         }
@@ -45,6 +50,10 @@ kotlin {
         val desktopMain by getting
         val desktopTest by getting
     }
+}
+
+dependencies {
+    "kapt"("com.google.dagger:dagger-compiler:${Versions.daggerVersion}")
 }
 
 android {
