@@ -1,6 +1,5 @@
 package dev.bryanlindsey.musicgenerator3.ui.common
 
-import android.content.res.Configuration.ORIENTATION_LANDSCAPE
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -10,7 +9,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.dp
 import dev.bryanlindsey.musicgenerator3.ui.pianoroll.PianoRoll
 import dev.bryanlindsey.themecomposer.Composition
@@ -28,71 +26,27 @@ fun CompositionDisplay(
     composition: Composition? = null,
     name: String? = null,
 ) {
-    val orientation =
-        if (LocalConfiguration.current.orientation == ORIENTATION_LANDSCAPE) {
-            Orientation.Horizontal
-        } else Orientation.Vertical
+    BoxWithConstraints(modifier = modifier) {
+        val orientation =
+            if (maxWidth > maxHeight) {
+                Orientation.Horizontal
+            } else Orientation.Vertical
 
-    val noteRange = getPitchRange(composition?.melody ?: emptyList())
+        val noteRange = getPitchRange(composition?.melody ?: emptyList())
 
-    if (orientation == Orientation.Vertical) {
-        Column(
-            modifier = modifier,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            CompositionProperties(
-                composition = composition,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp, vertical = 16.dp),
-                name = name,
-            )
-
-            Divider()
-
-            PianoRoll(
-                noteColor = MaterialTheme.colors.secondary,
-                noteList = composition?.melody ?: emptyList(),
-                chordProgression = composition?.chordProgression ?: emptyList(),
-                beatsPerMeasure = composition?.timeSignature?.beatsPerMeasure ?: 4,
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth(),
-                lowestNoteShown = noteRange.first(),
-                highestNoteShown = noteRange.last(),
-                minWidthAfterLastNote = 128.dp,
-            )
-        }
-    } else {
-        Row(modifier = modifier) {
-            Surface(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .fillMaxWidth(0.25f),
-                elevation = 4.dp,
+        if (orientation == Orientation.Vertical) {
+            Column(
+                modifier = modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                val scrollState = rememberScrollState()
-
                 CompositionProperties(
                     composition = composition,
                     modifier = Modifier
-                        .verticalScroll(
-                            state = scrollState,
-                        )
                         .fillMaxWidth()
-                        .padding(vertical = 16.dp),
+                        .padding(horizontal = 24.dp, vertical = 16.dp),
                     name = name,
-                    orientation = Orientation.Vertical,
                 )
-            }
 
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-            ) {
-                // It looks pretty awkward without an extra space
-                Spacer(modifier = Modifier.height(20.dp))
                 Divider()
 
                 PianoRoll(
@@ -100,11 +54,57 @@ fun CompositionDisplay(
                     noteList = composition?.melody ?: emptyList(),
                     chordProgression = composition?.chordProgression ?: emptyList(),
                     beatsPerMeasure = composition?.timeSignature?.beatsPerMeasure ?: 4,
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
                     lowestNoteShown = noteRange.first(),
                     highestNoteShown = noteRange.last(),
                     minWidthAfterLastNote = 128.dp,
                 )
+            }
+        } else {
+            Row(modifier = modifier) {
+                Surface(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .fillMaxWidth(0.25f),
+                    elevation = 4.dp,
+                ) {
+                    val scrollState = rememberScrollState()
+
+                    CompositionProperties(
+                        composition = composition,
+                        modifier = Modifier
+                            .verticalScroll(
+                                state = scrollState,
+                            )
+                            .fillMaxWidth()
+                            .padding(vertical = 16.dp),
+                        name = name,
+                        orientation = Orientation.Vertical,
+                    )
+                }
+
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxHeight(),
+                ) {
+                    // It looks pretty awkward without an extra space
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Divider()
+
+                    PianoRoll(
+                        noteColor = MaterialTheme.colors.secondary,
+                        noteList = composition?.melody ?: emptyList(),
+                        chordProgression = composition?.chordProgression ?: emptyList(),
+                        beatsPerMeasure = composition?.timeSignature?.beatsPerMeasure ?: 4,
+                        modifier = Modifier.fillMaxSize(),
+                        lowestNoteShown = noteRange.first(),
+                        highestNoteShown = noteRange.last(),
+                        minWidthAfterLastNote = 128.dp,
+                    )
+                }
             }
         }
     }
