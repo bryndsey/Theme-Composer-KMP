@@ -2,7 +2,7 @@ package dev.bryanlindsey.musicgenerator3.player
 
 import dev.bryanlindsey.staccato.convertToPattern
 import dev.bryanlindsey.themecomposer.Composition
-import jp.kshoji.javax.sound.midi.Sequence
+import javax.sound.midi.Sequence
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -14,7 +14,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CompositionPlayer @Inject constructor(): ICompositionPlayer {
+class CompositionPlayer @Inject constructor() : ICompositionPlayer {
 
     val playerState: MutableStateFlow<PlayerState> = MutableStateFlow(PlayerState.IDLE)
 
@@ -22,7 +22,7 @@ class CompositionPlayer @Inject constructor(): ICompositionPlayer {
 
     private fun getNewPlayer(): Player = Player().also { setupPlayerListeners(it) }
 
-    private val playerListener = object: ManagedPlayerListener {
+    private val playerListener = object : ManagedPlayerListener {
         override fun onStarted(p0: Sequence?) {
             playerState.value = PlayerState.PLAYING
         }
