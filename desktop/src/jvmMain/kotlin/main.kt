@@ -5,9 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -58,7 +56,7 @@ fun main() = Window {
                     ) {
                         when (playbackState.value) {
                             PlayerState.IDLE -> Icon(Icons.Default.PlayArrow, "Play")
-                            PlayerState.PLAYING -> Icon(Icons.Default.Clear, "Stop")
+                            PlayerState.PLAYING -> Icon(Icons.Default.Stop, "Stop")
                             PlayerState.PAUSED -> Icon(Icons.Default.PlayArrow, "Play")
                         }
                     }
@@ -70,7 +68,7 @@ fun main() = Window {
                             }
                         }
                     ) {
-                        Icon(Icons.Default.Refresh, "Generate")
+                        Icon(Icons.Default.Shuffle, "Generate")
                     }
                 }
             }
